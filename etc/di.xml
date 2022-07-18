@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<preference for="I95dev\Dummyproject\Api\CustomformRepositoryInterface" type="I95dev\Dummyproject\Model\CustomformRepository"/>
+	<preference for="I95dev\Dummyproject\Api\Data\CustomformInterface" type="I95dev\Dummyproject\Model\Data\Customform"/>
+	<preference for="I95dev\Dummyproject\Api\Data\CustomformSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+	<virtualType name="I95dev\Dummyproject\Model\ResourceModel\Customform\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+		<arguments>
+			<argument name="mainTable" xsi:type="string">i95dev_dummyproject</argument>
+			<argument name="resourceModel" xsi:type="string">I95dev\Dummyproject\Model\ResourceModel\Customform\Collection</argument>
+		</arguments>
+	</virtualType>
+	<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+		<arguments>
+			<argument name="collections" xsi:type="array">
+				<item name="i95dev_dummyproject_listing_data_source" xsi:type="string">I95dev\Dummyproject\Model\ResourceModel\Customform\Grid\Collection</item>
+			</argument>
+		</arguments>
+	</type>
+	<virtualType name="I95dev\Dummyproject\CustomformImageUpload" type="I95dev\Dummyproject\Model\ImageUploader">
+	    <arguments>
+	            <argument name="baseTmpPath" xsi:type="string">i95dev/dummyproject/tmp</argument>
+	            <argument name="basePath" xsi:type="string">i95dev/dummyproject</argument>
+	            <argument name="allowedExtensions" xsi:type="array">
+	                <item name="jpg" xsi:type="string">jpg</item>
+	                <item name="jpeg" xsi:type="string">jpeg</item>
+	                <item name="gif" xsi:type="string">gif</item>
+	                <item name="png" xsi:type="string">png</item>
+	            </argument>
+	    </arguments>
+	</virtualType>
+	<type name="I95dev\Dummyproject\Controller\Adminhtml\Customform\FileUploader\Save">
+	    <arguments>
+	            <argument name="imageUploader" xsi:type="object">I95dev\Dummyproject\CustomformImageUpload</argument>
+	    </arguments>
+	</type>
+</config>

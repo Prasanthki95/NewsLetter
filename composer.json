@@ -1,0 +1,22 @@
+{
+    "name": "i95dev/module-dummyproject",
+    "description": "Create Custom Form and Data Management from Backend",
+    "type": "magento2-module",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Prasanth",
+            "email": "prasanth.kumar@i95dev.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "I95dev\\Dummyproject\\": ""
+        }
+    }
+}
