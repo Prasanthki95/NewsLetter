@@ -15,12 +15,13 @@
  * version in the future.
  *
  * @category    PHPCuong
- * @package     PHPCuong_Newsletter
- * @copyright   Copyright (c) 2019-2020 GiaPhuGroup Co., Ltd. All rights reserved. (http://www.giaphugroup.com/)
+ * @package     PHPCuong_SalesOrder
+ * @copyright   Copyright (c) 2020-2021 GiaPhuGroup Co., Ltd. All rights reserved. (http://www.giaphugroup.com/)
  * @license     https://www.giaphugroup.com/LICENSE.txt
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <preference for="Magento\Newsletter\Controller\Subscriber\NewAction" type="I95dev\Newsletter\Controller\Override\NewAction" />
-    <preference for="Magento\Newsletter\Model\Subscriber" type="I95dev\Newsletter\Model\Subscriber" />
+    <type name="Magento\Backend\Block\Widget\Button\Toolbar">
+        <plugin name="I95dev_Newsletter::toolbar_button" type="I95dev\Newsletter\Plugin\Button\ToolbarPlugin" />
+    </type>
 </config>
